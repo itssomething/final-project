@@ -1,0 +1,12 @@
+    <h1>Question page</h1>
+    <% for(var i = 1; i < questList.length + 1; i++) { %>
+        <h1>Question <%= i %></h1>
+        <h3><%= questList[i - 1].quest %></h3>
+        <ul>
+            <li><%= questList[i - 1].answer1 %></li>
+            <li><%= questList[i - 1].answer2 %></li>
+            <li><%= questList[i - 1].answer3 %></li>
+            <li><%= questList[i - 1].answer4 %></li>
+        </ul>
+        <br>
+    <% }; %>

@@ -1,0 +1,6 @@
+<h1>Homepage</h1>
+<ul>
+    <% colList.forEach(function(col) { %>
+        <li><a href="/collections/<%= col.id %>"><%= col.name %> - <%= col.description %></a></li>
+    <% }); %>
+</ul>
