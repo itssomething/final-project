@@ -19,7 +19,7 @@ class questionPage extends Component {
   }
 
   getQuestions = _ => {
-    fetch('http://localhost:3636/collections/' + this.props.params.id)
+    fetch('http://179.16.8.104:3636/collections/' + this.props.params.id)
     .then(response => response.json())
     .then(response => this.setState(Object.assign({}, this.state, {pages: response.pages})))
     .catch(error=> console.log(error))
@@ -28,7 +28,8 @@ class questionPage extends Component {
   _onAnswerChanged = (questionId, answer) => {
     this.setState({
       answers: Object.assign({}, this.state.answers, { [questionId]: answer })
-    })
+    });
+    console.log(this.state.answers);
 
     // {
     //   "1 " : "Answer D",
@@ -106,7 +107,7 @@ class questionPage extends Component {
             transitionLeave={true}
             transitionEnterTimeout={500}
             transitionLeaveTimeout={300}>
-            <Body onAnswerChanged={this._onAnswerChanged} q={this.state.pages} />
+            <Body onAnswerChanged={this._onAnswerChanged} q={this.state.pages} answers={this.state.answers} pageNum={this.state.questionNumber} />
           </CSSTransitionGroup>
         </div>
 

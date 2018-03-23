@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   getList = _ => {
-    fetch('http://localhost:3636')
+    fetch('http://179.16.8.104:3636')
     .then(response => response.json())
     .then(response => this.setState({colList: response.colList}))
     .catch(error=> console.log(error))
@@ -23,7 +23,7 @@ class App extends Component {
   renderCol = ({id, name, description}) => <div key = {id}><Link to={"collections/" + id}><h2>{name}</h2>{description}</Link></div>
 
   render() {
-    const {colList} = this.state;
+    const {colList} = this.state; //?
     return (
       <div className="App">
         {colList.map(this.renderCol)}
